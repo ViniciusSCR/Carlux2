@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAR LUX - Estética Automotiva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./style_pagina_inicial.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="acessibilidade-menu">
+        <button id="toggle-contraste">Contraste</button>
+        <button id="toggle-fotossensibilidade">Fotossensibilidade</button>
+        <div class="texto-control">
+            <button id="aumentar-texto">A+</button>
+            <button id="diminuir-texto">A-</button>
+        </div>
+    </div>
+
+    <button class="reader-toggle" onclick="toggleScreenReader()" title="Leitor de Tela">
+        🔊
+    </button>
+
+    <div class="screen-reader-toolbar" id="readerToolbar">
+        <h4>🔊 Leitor de Tela</h4>
+        <button class="reader-button" onclick="readCurrentPage()" id="readPageBtn">
+            ▶️ Ler Página Inteira
+        </button>
+        <button class="reader-button" onclick="toggleReadOnHover()" id="hoverBtn">
+            👆 Ler ao Passar Mouse
+        </button>
+        <div class="reader-controls">
+            <button class="reader-button" onclick="pauseReading()">⏸️</button>
+            <button class="reader-button" onclick="stopReading()">⏹️</button>
+        </div>
+        <div class="speed-control">
+            <span>🐌</span>
+            <input type="range" class="speed-slider" min="0.5" max="2" step="0.1" value="1"
+                onchange="changeSpeed(this.value)">
+            <span>🐰</span>
+        </div>
+        <button class="reader-button" onclick="changeVoice()" id="voiceBtn">
+            🎭 Trocar Voz
+        </button>
+    </div>
+
+    <header class="header">
+        <div class="logo">
+            <div class="diamond">💎</div>
+            <div class="logo-text">Car Lux</div>
+            <div class="logo-subtext">Estética Automotiva</div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-link"><a href="#inicio">HOME</a></li>
+                <li class="nav-link"><a href="#servicos">SERVIÇOS</a></li>
+                <li class="nav-link"><a href="#diferencial">SOBRE NÓS</a></li>
+                <li class="nav-link"><a href="#contato">CONTATO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <h1 class="hero-title">CAR LUX</h1>
+                <p class="hero-subtitle">Estética Automotiva de Luxo.</p>
+            </div>
+        </section>
+
+        <section class="features" id="servicos">
+            <div class="feature-item">
+                <div class="feature-icon">🛡️</div>
+                <h3 class="feature-title">PROTEÇÃO CERÂMICA</h3>
+                <p class="feature-description">Serviço completo para a proteção da pintura automotiva.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🧽</div>
+                <h3 class="feature-title">DETALHAMENTO INTERNO</h3>
+                <p class="feature-description">Limpeza e higienização detalhada de todo o interior do veículo.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎨</div>
+                <h3 class="feature-title">RESTAURAÇÃO PINTURA</h3>
+                <p class="feature-description">Correção de imperfeições, como arranhões e manchas, para um acabamento
+                    perfeito.</p>
+            </div>
+        </section>
+
+        <section class="about" id="diferencial">
+            <div class="about-image-container">
+                <img src="../assets/img/Lavagem e Limpeza.png" alt="Detalhe do carro">
+            </div>
+            <div class="about-content">
+                <h2 class="about-title">NOSSO DIFERENCIAL</h2>
+                <p class="about-text">
+                    Nosso compromisso vai além da estética. Somos a única oficina a unir a excelência técnica em
+                    serviços de alta performance com a praticidade de uma plataforma digital completa. Oferecemos
+                    agendamento online, uma galeria "antes e depois" de alta qualidade e atendimento personalizado,
+                    garantindo que cada cliente tenha uma experiência única e confiável.
+                </p>
+                <a href="#" class="contact-button">Entre em contato</a>
+            </div>
+        </section>
+
+        <section id="contato" style="padding: 5rem 3rem; text-align: center;">
+            <h2 class="about-title">CONTATO</h2>
+            <p class="about-text">
+                Fale conosco para agendar um serviço ou tirar dúvidas. Estamos prontos para atender você com excelência.
+            </p>
+        </section>
+        <section class="avaliacoes" id="avaliacoes">
+            <h2 class="avaliacoes-title">AVALIAÇÕES</h2>
+
+            <div class="carrossel-container">
+                <button class="carrossel-btn prev" onclick="moveCarrossel(-1)">‹</button>
+
+                <div class="carrossel-wrapper">
+                    <div class="carrossel-track" id="carrosselTrack">
+                        <img src="../assets/img/image.png" alt="Avaliação 1" class="carrossel-img">
+                        <img src="../assets/img/image2.png" alt="Avaliação 2" class="carrossel-img">
+                        <img src="../assets/img/image3.png" alt="Avaliação 3" class="carrossel-img">
+                        <img src="../assets/img/image4.png" alt="Avaliação 4" class="carrossel-img">
+                        <img src="../assets/img/image5.png" alt="Avaliação 5" class="carrossel-img">
+                    </div>
+                </div>
+
+                <button class="carrossel-btn next" onclick="moveCarrossel(1)">›</button>
+            </div>
+
+            <div class="carrossel-indicators" id="indicators"></div>
+        </section>
+        <section class="agendamento" id="agendamento">
+            <div class="agendamento-container">
+                <h2 class="agendamento-title">AGENDE SEU ATENDIMENTO</h2>
+                <p class="agendamento-subtitle">
+                    Preencha o formulário abaixo e nossa equipe entrará em contato para confirmar seu horário
+                </p>
+
+                <div class="form-container">
+                    <div class="status-message" id="statusMessage"></div>
+
+                    <form id="agendamentoForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="nome" class="form-label">Nome Completo *</label>
+                                <input type="text" id="nome" name="nome" class="form-input"
+                                    placeholder="Digite seu nome completo" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefone" class="form-label">Telefone *</label>
+                                <input type="tel" id="telefone" name="telefone" class="form-input"
+                                    placeholder="(00) 00000-0000" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">E-mail *</label>
+                                <input type="email" id="email" name="email" class="form-input"
+                                    placeholder="seu@email.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="servico" class="form-label">Serviço Desejado *</label>
+                                <select id="servico" name="servico" class="form-select" required>
+                                    <option value="">Selecione um serviço</option>
+                                    <option value="protecao-ceramica">Proteção Cerâmica</option>
+                                    <option value="detalhamento-interno">Detalhamento Interno</option>
+                                    <option value="restauracao-pintura">Restauração da Pintura</option>
+                                    <option value="lavagem-completa">Lavagem Completa</option>
+                                    <option value="enceramento">Enceramento</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="veiculo" class="form-label">Veículo</label>
+                                <input type="text" id="veiculo" name="veiculo" class="form-input"
+                                    placeholder="Marca, modelo e ano">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="data-preferida" class="form-label">Data Preferida</label>
+                                <input type="date" id="data-preferida" name="data-preferida" class="form-input">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="periodo" class="form-label">Período Preferido</label>
+                                <select id="periodo" name="periodo" class="form-select">
+                                    <option value="">Selecione um período</option>
+                                    <option value="manha">Manhã (8h às 12h)</option>
+                                    <option value="tarde">Tarde (13h às 17h)</option>
+                                    <option value="flexivel">Flexível</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="urgencia" class="form-label">Urgência</label>
+                                <select id="urgencia" name="urgencia" class="form-select">
+                                    <option value="normal">Normal</option>
+                                    <option value="urgente">Urgente</option>
+                                    <option value="muito-urgente">Muito Urgente</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="observacoes" class="form-label">Observações Adicionais</label>
+                                <textarea id="observacoes" name="observacoes" class="form-textarea"
+                                    placeholder="Descreva detalhes específicos sobre seu veículo ou serviço desejado..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="aceito-termos" name="aceito-termos" class="checkbox-input"
+                                required>
+                            <label for="aceito-termos" class="checkbox-label">
+                                Aceito os termos de uso e autorizo o contato para confirmação do agendamento *
+                            </label>
+                        </div>
+
+                        <button type="submit" class="submit-button" id="submitButton">
+                            Solicitar Agendamento
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="bi-section" id="bi">
+          <h2 class="bi-title">📊 Painel de BI</h2>
+          <p class="bi-subtitle">
+            Acompanhe os dados e métricas em tempo real pelo nosso dashboard interativo.
+          </p>
+
+          <div class="bi-container">
+            <iframe 
+              title="BI Site" 
+              src="https://app.powerbi.com/view?r=eyJrIjoiMGJkN2QxYTktNDE3Mi00MWI2LTk0OTktZWFhYWJjNGQ0ZTBhIiwidCI6ImJmOGZlNzBjLTM0ZGUtNDA1MC04NzA4LWVjMDY1MDEzM2M1NyJ9" 
+              frameborder="0" 
+              allowFullScreen="true">
+            </iframe>
+          </div>
+        </section>
+    </main>
+
+    <script>
+        // Máscara para telefone
+        document.getElementById('telefone').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+                if (value.length < 15) {
+                    value = value.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+                }
+            }
+            e.target.value = value;
+        });
+
+        // Data mínima (hoje)
+        document.getElementById('data-preferida').min = new Date().toISOString().split('T')[0];
+
+        // Submissão do formulário
+        document.getElementById('agendamentoForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const submitButton = document.getElementById('submitButton');
+            const statusMessage = document.getElementById('statusMessage');
+
+            // Desabilitar botão durante envio
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+
+            // Simular envio (substitua por sua lógica de envio real)
+            setTimeout(() => {
+                // Resetar formulário
+                this.reset();
+
+                // Mostrar mensagem de sucesso
+                statusMessage.className = 'status-message success';
+                statusMessage.textContent = '✅ Solicitação enviada com sucesso! Entraremos em contato em breve.';
+                statusMessage.style.display = 'block';
+
+                // Reabilitar botão
+                submitButton.disabled = false;
+                submitButton.textContent = 'Solicitar Agendamento';
+
+                // Esconder mensagem após 5 segundos
+                setTimeout(() => {
+                    statusMessage.style.display = 'none';
+                }, 5000);
+
+                // Scroll para o topo da seção
+                document.getElementById('agendamento').scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+            }, 2000);
+        });
+    </script>
+    </main>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <script src="../javascript/js_text_constrat.js"></script>
+    <script src="../javascript/js_voice.js"></script>
+    <script src="../javascript/js_carrossel.js"></script>
+</body>
+
+</html>
